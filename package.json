@@ -1,0 +1,25 @@
+
+  "name": "@tungli/wasm-f5170_magnetic_mirror_ex1",
+  "version": "0.1.0",
+  "description": "",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "keywords": [
+    "wasm",
+    "rust",
+    "physics"
+  ],
+  "author": "Jan Tungli <tun@mail.muni.cz>",
+  "license": "(MIT OR Apache-2.0)",
+  "devDependencies": {
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5",
+    "copy-webpack-plugin": "^5.0.0"
+  }
+}

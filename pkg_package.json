@@ -1,0 +1,16 @@
+{
+  "name": "@tungli/wasm-f5170_magnetic_mirror_ex1",
+  "collaborators": [
+    "tungli <tun@mail.muni.cz>"
+  ],
+  "version": "0.1.0",
+  "files": [
+    "wasm_magnetic_mirror_bg.wasm",
+    "wasm_magnetic_mirror_bg.js",
+    "wasm_magnetic_mirror.js",
+    "wasm_magnetic_mirror.d.ts"
+  ],
+  "module": "wasm_magnetic_mirror.js",
+  "types": "wasm_magnetic_mirror.d.ts",
+  "sideEffects": false
+}
