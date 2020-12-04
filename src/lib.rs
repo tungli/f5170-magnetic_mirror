@@ -145,3 +145,16 @@ pub fn psi_1(s: &State, c: &Config) -> f64 {
     c.b0 * (r[0]*r[0] + r[1]*r[1]) * (1.0 + r[2]*r[2] / c.l / c.l)
 }
 
+#[cfg(test)]
+mod test {
+    use super::*;
+    #[test]
+    fn mag_f() {
+        let r0 = [-0.0195, 0.0128, 0.0064];
+        let f = mag_field_1(&r0, 0.1);
+        println!("{} {} {}", f[0], f[1], f[2]);
+        println!("{}", dot(&f, &f).sqrt());
+        println!("{}", -r0[0] * r0[2] / 0.1 / 0.1);
+        assert!(true);
+    }
+}
