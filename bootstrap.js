@@ -168,7 +168,7 @@
 /******/ 				promises.push(installedWasmModuleData);
 /******/ 			else {
 /******/ 				var importObject = wasmImportObjects[wasmModuleId]();
-/******/ 				var req = fetch(__webpack_require__.p + "" + {"./node_modules/@tungli/wasm-f5170_magnetic_mirror_ex1/wasm_magnetic_mirror_bg.wasm":"bae2a528f272dd1a9666"}[wasmModuleId] + ".module.wasm");
+/******/ 				var req = fetch(__webpack_require__.p + "" + {"./node_modules/@tungli/wasm-f5170_magnetic_mirror_ex1/wasm_magnetic_mirror_bg.wasm":"5ac9d8e035a13d7cdcef"}[wasmModuleId] + ".module.wasm");
 /******/ 				var promise;
 /******/ 				if(importObject instanceof Promise && typeof WebAssembly.compileStreaming === 'function') {
 /******/ 					promise = Promise.all([WebAssembly.compileStreaming(req), importObject]).then(function(items) {
