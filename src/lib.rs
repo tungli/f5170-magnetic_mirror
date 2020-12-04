@@ -63,7 +63,7 @@ impl Trajectory {
         let mut s = init.clone();
         traj.push(init);
         for _i in 0..c.n_steps {
-            s = s.step(dt, c.l, c.b0);
+            s = s.step(dt, c.b0, c.l);
             if 0.1 / s.field_mag * Q_M < dt {
                 return Self::try_new(dt/2.0, c);
             }
