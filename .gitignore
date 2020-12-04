@@ -7,3 +7,6 @@ wasm-pack.log
 
 *.swp
 *.swo
+
+node_modules
+

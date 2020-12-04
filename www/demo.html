@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Magnetic mirror WASM</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  </head>
+  <body>
+      <p>Perpendicular velocity: <input id="vel_perp" type="number" value=0.01 step=0.001></p>
+      <p>Parallel velocity: <input id="vel_par" type="number" value=0.01 step=0.001></p>
+      <p>Number of steps: <input id="n_steps" type="number" value=1000 step=1></p>
+      <p>Animation speed-up: <input id="anim_steps" type="number" value=4 step=1></p>
+      <p>B0: <input id="B0" type="number" value=1.0 step=0.1></p>
+      <p>L: <input id="L" type="number" value=1.5 step=0.1></p>
+
+      <p><button id="gen_traj">Generate trajectory</button></p>
+
+    <div id="plot3d" style="width:90%;height:500px;"></div>
+    <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>
+    <script src="./bootstrap.js"></script>
+
+    <p>
+    <label for="mag_moment">Magnetic moment: </label>
+    <output id="mag_moment">0.0</output>
+    </p>
+
+    <p>
+    <label for="energy">Kinetic energy: </label>
+    <output id="energy">0.0</output>
+    </p>
+
+    <p>
+    <label for="field_mag">Magnetic field magnitude: </label>
+    <output id="field_mag">0.0</output>
+    </p>
+
+    <p>
+    <label for="vperp">Perpendicular velocity: </label>
+    <output id="vperp">0.0</output>
+    </p>
+    
+    <button id="run_anim">Animate particle</button>
+    <button id="stop_anim">Stop animation</button>
+  </body>
+</html>
