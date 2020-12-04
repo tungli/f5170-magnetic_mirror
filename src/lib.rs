@@ -59,7 +59,7 @@ impl Trajectory {
         log(format!("dt = {}, n = {}", dt, c.n_steps).as_str());
         let mut traj = Vec::with_capacity(c.n_steps+1);
         let pos = [-c.vel_perp/Q_M/c.b0, 0., 0.];
-        let init = State { pos, vel: [0., c.vel_perp, c.vel_par], field_mag: 0.0 }; 
+        let init = State { t: 0.0, pos, vel: [0., c.vel_perp, c.vel_par], field_mag: 0.0 }; 
         let mut s = init.clone();
         traj.push(init);
         for _i in 0..c.n_steps {
@@ -83,6 +83,7 @@ impl Trajectory {
 pub struct State {
     pos: V3,
     vel: V3,
+    pub t: f64,
     pub field_mag: f64,
 }
 
@@ -101,7 +102,7 @@ impl State {
         let vel = boris(&self.vel, dt, Q_M, &mag_field);
         let pos = add(&self.pos, &mul(dt, &vel));
     
-        Self { pos, vel, field_mag }
+        Self { t: self.t + dt, pos, vel, field_mag }
     }
 
     pub fn mag_moment(&self) -> f64 {
@@ -136,5 +137,11 @@ fn boris(v: &V3, dt: f64, q_m: f64, mag_field: &V3) -> V3
 fn mag_field_1(r: &V3, l: f64) -> V3 {
     let (x, y, z) = (r[0], r[1], r[2]);
     [-x*z/l/l, -y*z/l/l, 1. + z*z/l/l] 
+}
+
+#[wasm_bindgen]
+pub fn psi_1(s: &State, c: &Config) -> f64 {
+    let r = &s.pos;
+    c.b0 * (r[0]*r[0] + r[1]*r[1]) * (1.0 + r[2]*r[2] / c.l / c.l)
 }
 
